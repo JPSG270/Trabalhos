@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="Entre_capas-cadastro.css">
+     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+</head>
+
+<body>
+
+    <main>
+        
+        <div class="entrar">
+            <a href="Entre_capas.html"><img src="https://i.postimg.cc/cJvR9xZZ/icons8-close-window-50.png" alt="Sair" id="sair" title="Voltar para a página inicial"></a>
+            <h1>Bem-vindo ao Entre Capas</h1>
+            <p>Acesse sua conta</p>
+            <a href="Entre_capas-login.html"><pre><button id="button_entrar" title="Entrar na conta">ENTRAR</button></pre></a>
+
+        </div>
+
+        <div class="cadastrar">
+
+            <h1>CRIE SUA CONTA</h1>
+            
+            <form id="formulario">
+                <label for="">NOME</label>
+                <br>
+                    <input 
+                    type="text" 
+                    name="NOME" 
+                    id="nome" 
+                    placeholder="Nome" 
+                    required 
+                    maxlength="20" 
+                    title="Insira um nome.">
+                <br>
+                    <span id="saida_nome"></span>
+                <br>
+                <label for="">E-MAIL </label>   
+                <br>
+                    <input type="email" 
+                    name="E-MAIL" 
+                    id="email" 
+                    placeholder="email@gmail.com" 
+                    title="Insira um e-mail válido da @gmail.com" 
+                    required>
+                <br>
+                    <span id="saida_email"></span>
+                <br>
+                <label for="">SENHA</label>
+                <br>
+                    <div class="container_senha">
+                        <input
+                        type="password"
+                        name="SENHA"
+                        id="senha"
+                        placeholder="Senha"
+                        required 
+                        maxlength="15"
+                        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$"
+                        title="A senha deve ter o tamanho de 8 a 15 caracteres,contendo pelo menos: 1 letra maiúscula, 1 minúscula, 1 número e 1 símbolo (ex: @, #, $, _).">
+                        <i class="material-icons" id="iconeOlho">visibility_off</i>
+                                        <br>
+                        <span id="saida_senha"></span>
+                                        <br>
+                    </div>
+                    <button type="submit" value="CADASTRAR" id="cadastrar">Cadastrar</button>
+
+            </form>
+
+        </div>
+    </main>
+
+<script src="Entre_capas-cadastro.js"></script>
+</body>
+
+</html>

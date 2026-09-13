@@ -1,0 +1,316 @@
+body {
+    min-height:100vh;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-areas: 
+    "header"
+    "nav"
+    "banner"
+    "main"
+    "footer"
+    ;
+    grid-template-columns: 1fr;
+    grid-template-rows:0.8fr 0.3fr 1.5fr 4fr 0.8fr ;   
+}
+
+.header{
+    display:flex;
+    background-color: #1E1E1E;
+    grid-area:header;
+    color: white;
+    justify-items: center;
+}
+
+
+
+.logo_txt{
+    font-size: 30px;
+    
+}
+
+.logo{
+    max-height:100px ;
+    background-color: none;
+    align-self: center;
+}
+
+.container_pesquisa{
+    display: flex;
+    background-color: #D9D9D9;
+    padding: 20px;
+    border-radius: 30px;
+    width: 750px;
+    max-height: 30px;
+    margin: 30px 150px 30px 150px;
+    
+    
+}
+
+.barra_pesquisa{
+    flex-shrink:0;
+    width:710px;
+    height:25px;
+    border-radius: 25px;
+    background: none;
+    padding:0 0 0 10px;
+
+    
+}
+ 
+.button_pesquisa{
+    background: none;
+    border-left: none;
+    border-radius: 0px 20px 20px 0px;
+
+}
+
+.nav{
+    display: flex;
+    background-color:#FFFFFF;
+    grid-area: nav;
+    justify-content: center;
+}
+
+
+
+.nav_buttons{
+    background-color:#D9D9D9;
+    border-radius: 40px;
+    height:60px;
+    width:90px ;
+    margin: 10px;
+    padding: 5px;   
+    cursor: pointer; 
+}
+
+.nav_circle1{
+    cursor: pointer;
+    margin: 10px;
+    height:50px ;
+    width: 50px;
+    border-radius: 50%;
+    background-image: url(https://i.postimg.cc/Qx7YgmC4/sergiosinc-user-icon-2098873-1920.png);
+    align-self: center
+    
+    
+}
+
+.nav_circle2{
+    cursor: pointer;
+     margin: 10px;
+    height:50px ;
+    width: 50px;
+    background-image: url(https://i.postimg.cc/FF8nJ8r0/elisariva-bag-2901753.png);
+    border-radius: 50%;
+    align-self: center
+}
+
+.container_direita{
+    display: flex;
+    margin-left: auto;
+}
+
+.creditos{
+    align-self: center;
+    display: flex;      
+    box-sizing: border-box;    
+    justify-content: center; 
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    border-radius: 25px;
+    height:40px;
+    width:70px ;
+    margin: 10px;
+    padding: 5px;
+    box-shadow:inset 0px 0px 0px 2px;
+}
+
+.banner{
+    background-image:url(https://i.postimg.cc/mr8r6bck/imagem-banner.png);
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
+    grid-area:banner;
+}
+.main{
+    display: block;
+    justify-items: center;
+    background-color:#FFFFFF;
+    grid-area:main ;
+}
+
+.items_generos{
+    margin: 0px 50px 0px 50px;
+    align-items: center;
+    width: 1200px;
+    display: flex;
+    overflow-x: auto;
+    gap: 100px;
+    flex: 0 0 auto;
+}
+
+.generos{
+    border:none;
+    background: none;
+    cursor: pointer;
+}
+
+.img_generos{
+    border-radius: 50%;
+    width: 100px;
+    height: 100px; 
+    cursor: pointer;
+}
+
+
+.items_livros{
+    display: flex;
+    margin: 50px 50px 50px 150px;
+    align-items: center;
+    justify-items: center;
+    min-width: 700px;
+    max-width:1000px;
+    overflow-x: auto;
+    gap: 100px;
+    flex: 0 0 auto;
+    
+}
+
+.img_livros{
+    width: 170px;
+    height: 220px;
+    border-radius: 25px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.button_display{
+    display:flex;
+    max-width:800px;
+    max-height: 285px;
+    box-sizing: border-box;
+    flex-direction: column;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 25px;
+    padding: 10px;
+    cursor: pointer;
+    
+
+}
+.titulo_livro{
+    max-width: 170px;
+    text-align: center;
+    white-space:normal;
+    word-wrap: break-word;
+
+}
+
+
+
+.footer{
+    background-color:#FFFFFF;
+    grid-area:footer;
+    
+   
+
+}
+.menu_flutuante{
+    float:right;
+    position: relative;
+    display: inline-block;
+    
+}
+
+.button_help{
+    background-color: black;
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+    border-radius: 50%;
+    margin: 15px;
+}
+
+.conteudo_help{
+    display:none ;  
+    position: absolute;
+    right: 45px;
+    bottom: 15px;
+    background-color: #222222;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 8px;
+    flex-direction: column;
+    min-height:100px;
+    gap: 15px;
+    padding: 25px 4px 25px 4px;
+    align-items: center;
+    border: 2px solid black;
+    margin: 15px;
+     
+    
+}
+.central_font{
+    border: 10px solid  black;
+    background-color:black ;
+}
+
+.conteudo_help button{
+    min-width: 320px;
+    border: 2px solid black;
+    min-height: 60px;
+    text-align: left;
+}
+
+.conteudo_help button:hover{
+    background-color: #353434;
+    cursor: pointer;
+ 
+    
+
+}
+
+.menu_flutuante:hover .conteudo_help{
+    display: flex;
+
+}
+
+.acess_container{
+    position: relative;
+    display: inline-block;
+}
+
+.acess_block{
+    display:none ;
+    position: absolute;
+    bottom: 75px;
+    right: 150px;
+    z-index: 1;
+    padding: 50px;
+    border: 2px solid black;
+    background-color: #353434;
+    min-width: 240px;
+    max-width: 270px
+
+
+
+}
+
+.acess_block button{
+    margin: 25px 0px 25px 2px;
+    min-width:270px ;
+    ;
+}
+
+.acess_button{
+    
+}
+
+.acess_block.mostrar{
+    display: block;
+
+}
