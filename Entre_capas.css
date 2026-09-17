@@ -1,17 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Changa:wght@200..800&family=Graduate&family=Hind+Vadodara:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rozha+One&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap');
 /*style*/
 
     /*Normal*/
-    .logo_txt{font-size: 2rem;font-family: graduate;}
+    .logo_txt{font-size:1.5rem; font-family:graduate; line-height:1; margin:0 30px 0 10px;}
     .nav input{font-family: changa;font-size: 1rem;}
     .main button{font-family: changa;font-size: 1rem; color: var(--cor-texto);}
-    .main h2{font-family:graduate;color: var(--cor-texto);}
-    .footer span{font-family: graduate;font-size: 1.8rem;color: snow;}
-    .footer button{font-family: changa;}
+    .main h2{font-family: Times New Roman, Times, serif;color: var(--cor-texto);}
+    .menu span{font-family: graduate;font-size: 1.8rem;color: snow;}
+    .menu button{font-family: changa;}
    
     :root{
-        --cor-fundo:snow;
+        --cor-fundo:#F5F0EB;
         --cor-texto:#353434;
     }
 
@@ -30,129 +30,171 @@ body {
     "nav"
     "banner"
     "main"
+    "menu"
     "footer"
     ;
     grid-template-columns: 1fr;
-    grid-template-rows:0.8fr 0.3fr 1.5fr auto 0.8fr ;   
+    grid-template-rows:auto auto auto auto auto;   
     background-color: var(--cor-fundo);
+}
+
+.main h2 {
+    font-family: 'Bodoni+Moda';
 }
 
 .header{
     display:flex;
-    background-color: #1E1E1E;
+    align-items:center;
+    background-color:#1E1E1E;
     grid-area:header;
-    color: white;
-    justify-items: center;
+    color:white;
+    padding:10px 40px;
+    box-sizing:border-box;
+    height:80px;
+    padding: 20px;
 }
 
-
-
-
-
 .logo{
-    max-height:100px ;
-    background-color: none;
-    align-self: center;
+    width:65px;
+    height:65px;
+    object-fit:contain;
+    background-color:none;
 }
 
 .container_pesquisa{
-    display: flex;
-    background-color: #D9D9D9;
-    padding: 20px;
-    border-radius: 30px;
-    width: 750px;
-    max-height: 30px;
-    margin: 30px 150px 30px 150px;
-    
-    
+    display:flex;
+    align-items:center;
+    background-color:#E8E0D4;
+    padding:10px 15px;
+    border-radius:30px;
+    width:500px;
+    height:25px;
+    margin:0 auto;
+}
+
+.container_pesquisa{
+    background-color:#DCCFBE;
 }
 
 .barra_pesquisa{
-    flex-shrink:0;
-    width:710px;
+    flex:1;
+    width:auto;
     height:25px;
-    border-radius: 25px;
-    background: none;
-    padding:0 0 0 10px;
-    border: 2px solid black;
+    border-radius:25px;
+    background:none;
+    padding:0 10px;
+    border:none;
+    outline:none;
+    box-shadow:none;
+    margin:0;
+}
 
-    
+.barra_pesquisa:focus {
+    outline: none;
+    box-shadow: none;
+    border: none;
 }
  
 .button_pesquisa{
-    background: none;
-    border-left: none;
-    border-radius: 0px 20px 20px 0px;
-    border: none;
+    background:none;
+    border:none;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:0 5px;
+}
 
+.button_pesquisa img{
+    width:22px;
+    height:22px;
+    object-fit:contain;
 }
 
 .nav{
-    display: flex;
-    background-color:var(--cor-fundo);
-    grid-area: nav;
-    justify-content: center;
-    padding: 5px 10px;
+    position:absolute;
+    top:0;
+    right:40px;
+    height:70px;
+    display:flex;
+    align-items:center;
+    background:none;
+    padding:0;
+    box-sizing:border-box;
+    gap: 50px;
 }
 
-
-
 .nav_buttons{
-    background-color:#D9D9D9;
-    border-radius: 40px;
-    border: none;
-    padding: 12px 24px;
-    min-width: 100px;
-    margin: 10px;
-    padding: 5px;   
-    cursor: pointer; 
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    background:none;
+    color:#F5F0EB;
+    border:none;
+    border-bottom:3px solid transparent;
+    border-radius:0;
+    padding:8px 15px;
+    min-width:auto;
+    margin:0 5px;
+    cursor:pointer;
+    font-family:changa;
+    font-size:0.95rem;
+    box-sizing:border-box;
+    transition:0.2s ease;
+}
+
+.nav_buttons:hover{
+    color:#E8622C;
+    transform:none;
+    background:none;
+    border-bottom:3px solid #E8622C;
 }
 
 #imagem_conta{
-    height: 20px;
-    width: 20px;
-    cursor: pointer;
+    height:43px;
+    width:43px;
+    padding:7px;
+    box-sizing:border-box;
+    background-color:#252525;
+    border-radius:50%;
+    cursor:pointer;
 }
 
 .container_direita{
-    display: flex;
-    margin-left: auto;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-left:auto;
 }
 
 .creditos{
-    align-self: center;
-    display: flex;      
-    box-sizing: border-box;    
-    justify-content: center; 
-    align-items: center;
-    background-color: #D9D9D9;
-    border-radius: 25px;
-    height:40px;
-    width:150px ;
-    margin: 10px;
-    padding: 5px;
-    box-shadow:inset 0px 0px 0px 2px;
-    font-size: 1rem;
-    font-family: poppins;
+    display:flex;
+    box-sizing:border-box;
+    justify-content:center;
+    align-items:center;
+    background-color:#252525;
+    color:#F5F0EB;
+    border-radius:20px;
+    height:32px;
+    width:55px;
+    margin:0;
+    padding:4px 8px;
+    box-shadow:none;
+    font-size:0.8rem;
+    font-family:poppins;
 }
 
 #diamante{
-   text-align: left;
-   margin-right: 15px;
-   max-width:20px;
-   max-height: 20px;
+    font-size:20px;
+    margin-right:4px;
+    max-width:30px;
+    max-height:30px;
 }
 
 .banner{
-    background-image:url(https://i.postimg.cc/tJ9hvVVn/Chat-GPT-Image-11-de-mai-de-2026-14-26-50.png);
+    background-image:url(IMG/banner.png);
     background-repeat:no-repeat;
     background-size:cover;
     background-position:center;
     grid-area:banner;
-    margin: 0 20px;
+    height: 450px;
 }
 .main{
     text-align: center;
@@ -160,6 +202,23 @@ body {
     background-color:var(--cor-fundo);
     grid-area:main ;
     margin: auto;
+}
+
+.main h2 {
+        font-family:graduate;
+    color:var(--cor-texto);
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.main h2::before,
+.main h2::after{
+    content:"";
+    height:3px;
+    background-color:#E8622C;
+    flex:1;
+    border-radius:10px;
 }
 
 .scroll_genero{
@@ -178,7 +237,7 @@ body {
     max-width: 1000px;
     display: flex;
     overflow-x: auto;
-    gap: 100px;
+    gap: 55px;
     flex: 0 0 auto;
 }
 
@@ -193,11 +252,17 @@ body {
     text-wrap: nowrap;
 }
 
+.generos:hover .img_generos{
+    transform:scale(1.08);
+}
+
 .img_generos{
     border-radius: 50%;
-    width: 100px;
-    height: 100px; 
+    width: 120px;
+    height: 120px; 
+    object-fit: cover;
     cursor: pointer;
+    transition:transform 0.2s ease;
 }
 
 .scroll_livros{
@@ -281,7 +346,7 @@ body {
 
 
 
-.footer{
+.menu{
     background-color:var(--cor-fundo);
     grid-area:footer;
     display: flex;
@@ -291,12 +356,12 @@ body {
    
 
 }
-.menu_flutuante{
-    position: relative;
+.menu_flutuante {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
     display: inline-block;
-    
-    
-    
+    z-index: 1000;
 }
 
 .button_help{
@@ -309,51 +374,59 @@ body {
 }
 
 .conteudo_help{
-    display:none ;  
+    visibility: hidden;
+    opacity: 0;
     position: absolute;
-    right: 45px;
-    bottom: 15px;
+    right: 75px;
+    bottom: 0;
     background-color: #222222;
-    min-width: 160px;
+    width: 220px;
+    min-width: 0;
+    min-height: 0;
     box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-    z-index: 1; /* Garante que fique por cima de tudo */
+    z-index: 1;
     border-radius: 8px;
+    display: flex;
     flex-direction: column;
-    min-height:100px;
-    gap: 15px;
-    padding: 50px;
+    gap: 8px;
+    padding: 15px;
     align-items: center;
     border: 2px solid black;
-    margin: 15px;
-     
-    
+    margin: 0;
+    transform: translateY(10px);
+    transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    visibility 0.25s;
 }
 
 
 .conteudo_help button{
-    min-width: 320px;
+    width: 190px;
+    min-width: 0;
+    min-height: 40px;
+    margin: 5px 0;
+    padding: 8px;
     border: 2px solid black;
-    min-height: 60px;
-    text-align: left;
-    font-size: 0.8rem;
-    margin:20px 0px;
     border-radius: 8px;
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1rem;
+    font-family: changa;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
     
 }
 
 .conteudo_help button:hover{
     background-color: #353434;
     cursor: pointer;
- 
-    
-
+    transform: scale(1.03);
 }
 
 .menu_flutuante:hover .conteudo_help{
-    display: flex;
-
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .acess_container{
@@ -363,32 +436,77 @@ body {
 }
 
 .acess_block{
-    display:none ;
+    visibility: hidden;
+    opacity: 0;
     position: absolute;
-    bottom: 75px;
-    right: 150px;
-    z-index: 1;
-    padding: 50px;
+    right: 235px;
+    bottom: -15px;
+    z-index: 2000;
+    width: 220px;
+    min-width: 0;
+    max-width: none;
+    padding: 15px;
     border: 2px solid black;
-    background-color: #353434;
-    min-width: 240px;
-    max-width: 270px;
-    border-radius: 8px;
-
-
-
-
+    background-color: #222222;
+    border-radius: 12px;
+    transform: translateX(10px);
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease,
+        visibility 0.25s;
 }
+
 
 .acess_block button{
-    margin: 25px 0px 25px 2px;
-    min-width:270px ;
-    ;
+    width: 190px;
+    min-width: 0;
+    min-height: 40px;
+    margin: 5px 0;
+    padding: 8px;
+    border: 2px solid black;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
 }
 
-
-
 .acess_block.mostrar{
-    display: block;
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0);
+}
 
+footer {
+    display: flex;
+    align-items: center;
+    grid-area: footer;
+    background-color: #1E1E1E;
+    padding: 20px;
+    gap: 25px;
+    box-sizing: border-box;
+}
+
+footer p {
+    color: white;
+    font-family: 'Poppins';
+    margin: 0;
+}
+
+footer span {
+    color: white;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: 0.2(ease);
+}
+
+footer span:hover {
+    color:#E8622C;
+}
+
+.footer-links{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-left: auto;
+    margin-right: 150px;
 }
