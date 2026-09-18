@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Changa:wght@200..800&family=Graduate&family=Hind+Vadodara:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rozha+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 /*style*/
 
     /*Normal*/
@@ -39,7 +40,9 @@ body {
 }
 
 .main h2 {
-    font-family: 'Bodoni+Moda';
+    font-family: 'Bodoni Moda', serif !important;
+    font-size: 35px;
+    font-weight: 20px;
 }
 
 .header{
@@ -283,7 +286,7 @@ body {
     min-width: 700px;
     max-width:1000px;
     overflow-x: auto;
-    gap: 90px;
+    gap: 120px;
     flex: 0 0 auto;
     padding-bottom: 15px;
     
@@ -295,6 +298,11 @@ body {
     border-radius: 25px;
     box-sizing: border-box;
     cursor: pointer;
+    transition:transform 0.2s ease;
+}
+
+.img_livros:hover{
+    transform:scale(1.08);
 }
 
 .button_display{
@@ -311,9 +319,15 @@ body {
     padding: 10px;
     cursor: pointer;
     border: none;
-    
-
 }
+
+.button_display h3 {
+    font-family: 'Poppins';
+    font-size: 14px;
+    margin-bottom: 0px;
+}
+
+
 .titulo_livro{
     max-width: 170px;
     padding: 10px 0px 0px 0px;
@@ -509,4 +523,23 @@ footer span:hover {
     gap: 30px;
     margin-left: auto;
     margin-right: 150px;
+}
+
+.avaliacao {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 3px;
+    width: 100%;
+    margin-top: 0px;
+}
+
+.avaliacao span {
+    font-family: 'Poppins';
+}
+
+
+.estrela {
+    color: #E8622C;
+    font-size: 1.1rem;
 }
