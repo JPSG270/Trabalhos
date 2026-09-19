@@ -8,7 +8,7 @@
     .nav input{font-family: changa;font-size: 1rem;}
     .main button{font-family: changa;font-size: 1rem; color: var(--cor-texto);}
     .main h2{font-family: Times New Roman, Times, serif;color: var(--cor-texto);}
-    .menu span{font-family: graduate;font-size: 1.8rem;color: snow;}
+    .menu span{font-family: 'Poppins'1.8rem;color: snow;}
     .menu button{font-family: changa;}
    
     :root{
@@ -21,6 +21,9 @@
         --cor-texto:snow;}
 
 /*style*/
+header p {
+    font-family:'Bodoni moda' !important;
+}
 body {
     min-height:100vh;
     margin: 0;
@@ -401,44 +404,34 @@ body {
 }
 
 
-
-.menu{
-    background-color:var(--cor-fundo);
-    grid-area:footer;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    
-   
-
+.menu {
+    grid-area: menu;
+    height: 0;
 }
+
 .menu_flutuante {
     position: fixed;
     right: 25px;
     bottom: 25px;
-    display: inline-block;
-    z-index: 1000;
+    z-index: 9999;
 }
 
-.button_help{
+/* BOTÃO REDONDO */
+
+.button_help {
     width: 65px;
     height: 65px;
     border-radius: 50%;
     border: 2px solid #E8622C;
     background-color: #1E1E1E;
-    color: #E8622C;
-    font-family: Georgia, serif;
-    font-size: 1.8rem;
-    font-weight: bold;
     cursor: pointer;
-    transition: 0.2s ease;
 }
 
-.button_help:hover {
+.button_help:hover{
     background-color: #E8622C;
-    color: white;
-    transform: scale(1.05);
 }
+
+/* PAINEL */
 
 .conteudo_help {
     visibility: hidden;
@@ -446,8 +439,8 @@ body {
     position: absolute;
     right: 85px;
     bottom: 0;
-    width: 280px;
-    padding: 22px;
+    width: 290px;
+    padding: 12px;
     box-sizing: border-box;
     background-color: #1E1E1E;
     border: 2px solid #E8622C;
@@ -455,7 +448,7 @@ body {
     box-shadow: 0 10px 30px rgba(0,0,0,0.45);
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 7px;
     transform: translateX(10px);
     transition:
         opacity 0.25s ease,
@@ -463,21 +456,89 @@ body {
         visibility 0.25s;
 }
 
+.conteudo_help a {
+    text-decoration: none;
+}
 
-.conteudo_help button {
-    width: 100%;
-    min-height: 48px;
+.conteudo_help .material-icons {
+    color: #E8622C;
+    font-size: 21px;
+    flex-shrink: 0;
+}
+
+/* ABRIR */
+
+.menu_flutuante:hover .conteudo_help {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+/* CABEÇALHO */
+
+.help_cabecalho {
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 10px 14px;
+
+    width: 100%;
+
+    color: white;
+}
+
+.help_cabecalho .material-icons {
+    color: #E8622C;
+    font-size: 30px;
+}
+
+.help_cabecalho .central_font {
+    font-family: Graduate !important;
+    font-size: 1.35rem;
+    color: white;
+}
+
+
+/* LINHA LARANJA */
+
+.help_linha {
+    width: 100%;
+    height: 2px;
+    background-color: #E8622C;
+    margin: 5px 0;
+}
+
+
+/* ÁREA DOS BOTÕES */
+
+.help_opcoes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.help_opcoes a{
+    text-decoration: none; 
+    color: white;
+}
+
+/* BOTÕES */
+
+.conteudo_help button {
+    width: 100%;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
     box-sizing: border-box;
     background-color: #292929;
     color: #F5F0EB;
     border: 1px solid #4a4039;
-    border-radius: 10px;
+    border-radius: 9px;
     font-family: Changa;
-    font-size: 1rem;
+    font-size: 1.05rem;
     cursor: pointer;
     transition: 0.2s ease;
 }
@@ -488,16 +549,14 @@ body {
     transform: translateX(-3px);
 }
 
+
+/* ÍCONES */
+
 .conteudo_help button .material-icons {
     color: #E8622C;
     font-size: 22px;
+    flex-shrink: 0;
 }
-
-.conteudo_help button span:nth-child(2) {
-    flex: 1;
-    text-align: left;
-}
-
 
 .conteudo_help button:hover .material-icons,
 .conteudo_help button:hover .help_seta {
@@ -505,91 +564,128 @@ body {
 }
 
 
+/* TEXTO */
+
+.conteudo_help button span:nth-child(2) {
+    flex: 1;
+    text-align: left;
+}
+
+
+/* SETA */
+
 .help_seta {
     color: #E8622C;
     font-family: Arial, sans-serif;
-    font-size: 28px;
-    line-height: 20px;
+    font-size: 24px;
+    line-height: 1;
+    margin-left: auto;
 }
 
 
-.menu_flutuante:hover .conteudo_help {
-    visibility: visible;
-    opacity: 1;
-    transform: translateX(0);
-}
+/* ACESSIBILIDADE */
 
-.help_cabecalho {
+.acess_container {
+    position: relative;
+    width: 100%;
+    min-height: 44px;
     display: flex;
     align-items: center;
-    gap: 12px;
-    color: white;
+    gap: 10px;
+    padding: 8px 12px;
+    box-sizing: border-box;
+    background-color: #292929;
+    border: 1px solid #4a4039;
+    border-radius: 9px;
+    color: #F5F0EB;
+    font-family: Changa;
+    font-size: 1rem;
+    cursor: pointer;
 }
 
-.help_cabecalho .material-icons {
+.acess_container .material-icons{
     color: #E8622C;
-    font-size: 30px;
 }
 
-.central_font {
-    font-family: Graduate;
-    font-size: 1.35rem;
-    color: white;
-}
-
-.help_linha {
-    width: 100%;
-    height: 2px;
+.acess_container:hover {
     background-color: #E8622C;
-    margin: 3px 0 8px;
 }
 
-
-.acess_container{
-    position: relative;
-    display: inline-block;
-    text-align: center;
-}
-
-.acess_block{
+.acess_block {
+    position: absolute;
+    right: 300px;
+    bottom: 0px;
+    width: 220px;
+    padding: 15px;
+    box-sizing: border-box;
+    background-color: #222222;
+    border: 2px solid #E8622C;
+    border-radius: 12px;
+    z-index: 2000;
     visibility: hidden;
     opacity: 0;
-    position: absolute;
-    right: 235px;
-    bottom: -15px;
-    z-index: 2000;
-    width: 220px;
-    min-width: 0;
-    max-width: none;
-    padding: 15px;
-    border: 2px solid black;
-    background-color: #222222;
-    border-radius: 12px;
     transform: translateX(10px);
     transition:
         opacity 0.25s ease,
         transform 0.25s ease,
-        visibility 0.25s;
+        visibility 0.25s ease;
 }
 
 
-.acess_block button{
-    width: 190px;
-    min-width: 0;
-    min-height: 40px;
-    margin: 5px 0;
-    padding: 8px;
-    border: 2px solid black;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-}
 
-.acess_block.mostrar{
+.acess_block.mostrar {
     visibility: visible;
     opacity: 1;
     transform: translateX(0);
 }
+
+.acess_block button {
+    width: 100%;
+    min-height: 40px;
+    margin:  5px;
+    padding: 7px 10px;
+    border: 2px solid #4a4039;
+    background-color: #292929;
+    color: #F5F0EB;
+    font-family: 'Poppins';
+    font-size: 0.9rem;
+    text-align: left;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+
+#acess_button {
+    transition: 0.2s ease;
+}
+
+#acess_button:hover {
+    background-color: #E8622C;
+    color: white;
+    transform: translateX(-3px);
+}
+
+#acess_button:hover .material-icons,
+#acess_button:hover .help_seta {
+    color: white !important;
+}
+
+
+.acess_block .central_font{
+    display: block;
+    width: 100%;
+    font-family: 'Poppins' !important;
+    font-size: 1.5rem;
+    color: white;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.acess_block .tamanho_fonte{
+    justify-content: center;
+}
+
+
 
 footer {
     display: flex;
@@ -644,4 +740,18 @@ footer span:hover {
 .estrela {
     color: #E8622C;
     font-size: 1.1rem;
+}
+
+.material-icons {
+    font-family: 'Material Icons' !important;
+    font-weight: normal !important;
+    font-style: normal !important;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
 }
