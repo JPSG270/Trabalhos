@@ -22,7 +22,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Changa:wght@200..800&family=Graduate&family=Hind+Vadodara:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Rozha+One&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 
@@ -39,8 +39,10 @@
         <img src="https://i.postimg.cc/NMbBjb8j/Captura-de-tela-2026-05-02-193618.png" alt="Logomarca" class="logo"><p class="logo_txt" > Entre <br> Capas</p>
         
         <form class="container_pesquisa">
-            <input type="text" placeholder="Pesquisar" class="barra_pesquisa" id="barra_pesquisa" >
-            <input type="button" class="button_pesquisa" id="button_pesquisa" value="🔎" >
+            <input type="text" placeholder="Pesquise por título, autor ou gênero..." class="barra_pesquisa" id="barra_pesquisa" >
+            <button type="button" class="button_pesquisa" id="button_pesquisa">
+            <img src="IMG/lupa.png" alt="Pesquisar">
+            </button>
         
 
         </form>
@@ -63,7 +65,7 @@
             <pre id="creditos" class="creditos"><span class="material-icons" id="diamante">diamond</span>100,00</pre>
 
               <a href="Entre_capas-cadastro.html" class="nav_buttons" title="Ir para a conta">
-                    <img src="https://i.postimg.cc/Qx7YgmC4/sergiosinc-user-icon-2098873-1920.png" alt="Conta" id="imagem_conta">
+                    <img src="IMG/user.png" alt="Conta" id="imagem_conta">
               </a>
 
             
@@ -73,7 +75,13 @@
     </nav>
 
 
-    <div class="banner"></div>
+    <div class="banner">
+        <button class="button_banner">
+            <span class="material-icons">menu_book</span>
+            <a href="Sobre_projeto.html"><span>saiba mais sobre o projeto</span></a>
+            <span class="seta_banner">›</span>
+        </button>
+    </div>
 
 
     <main class="main">
@@ -112,14 +120,68 @@
                 <button id="seta3" class="seta"><img src="https://i.postimg.cc/nrJdfXqz/Chat-GPT-Image-11-de-mai-de-2026-12-10-10.png" alt=""></button>
                 <div class="items_livros" id="items_livros">
 
-                    <button class="button_display" id="button_display"><img src="https://pdlibrosbra.cdnstatics2.com/usuaris/libros/thumbs/0157c008-2327-412f-8a56-2c88aac6bb10/d_360_620/portada_avatar-a-lenda-de-aang_nickelodeon_202502271413.webp" alt="" class="img_livros"><p class="titulo_livro">Avatar:a lenda de Aang</p></button>
+                    <button class="button_display" id="button_display"><img src="https://pdlibrosbra.cdnstatics2.com/usuaris/libros/thumbs/0157c008-2327-412f-8a56-2c88aac6bb10/d_360_620/portada_avatar-a-lenda-de-aang_nickelodeon_202502271413.webp" alt="" class="img_livros">
+                        <h3 class="titulo_livro">Avatar:a lenda de Aang</h3>
+                        <p>Gene Luen Yang</p>
+                        
+                    <div class="avaliacao">
+                        <span class="estrela">★</span>
+                        <span class="estrela">★</span>
+                        <span class="estrela">★</span>
+                        <span class="estrela">★</span>
+                        <span class="estrela">☆</span>
+                        <span>(120)</span>
+                    </div>
 
-                    <button class="button_display" id="button_display"><img src="https://imagens.disal.com.br/produtos/ampliada/9913440.jpg" alt="" class="img_livros"><p class="titulo_livro">Quarta Asa</p></button>
+                    </button>
 
-                    <button class="button_display" id="button_display"><img src="https://tocalivros.s3.amazonaws.com/images/audiolivros/350/r/o/romeu-e-julieta-william-shakespeare-1051491.jpg" alt="" class="img_livros"><p class="titulo_livro">Romeu e Julieta</p></button>
+                   
+
+                    <button class="button_display" id="button_display"><img src="https://imagens.disal.com.br/produtos/ampliada/9913440.jpg" alt="" class="img_livros">
+                        <h3 class="titulo_livro">Quarta Asa</h3>
+                        <p>Rebecca Yarros</p>
+
+                    <div class="avaliacao">
+                        <span class="estrela">★</span>
+                        <span class="estrela">★</span>
+                        <span class="estrela">★</span>
+                        <span class="estrela">☆</span>
+                        <span class="estrela">☆</span>
+                        <span>(206)</span>
+                    </div>
+                    </button>
+
+
+                    <button class="button_display" id="button_display"><img src="https://tocalivros.s3.amazonaws.com/images/audiolivros/350/r/o/romeu-e-julieta-william-shakespeare-1051491.jpg" alt="" class="img_livros">
+                        <h3 class="titulo_livro">Romeu e Julieta</h3>
+                        <p>William Shakespeare</p>
+
+                        <div class="avaliacao">
+                        <span class="estrela">★</span>
+                        <span class="estrela">★</span>
+                        <span class="estrela">★</span>
+                        <span class="estrela">★</span>
+                        <span class="estrela">★</span>
+                        <span>(165)</span>
+                    </div>
+                    </button>
+
                     
-                    <button class="button_display" id="button_display"><img src="https://m.media-amazon.com/images/I/51D7-jlIuzL._SY445_SX342_ML2_.jpg" alt="" class="img_livros"><p class="titulo_livro">Five Nights at Freddy's:Olhos Prateados</p></button>
+                    <button class="button_display" id="button_display"><img src="https://m.media-amazon.com/images/I/51D7-jlIuzL._SY445_SX342_ML2_.jpg" alt="" class="img_livros">
+                        <h3 class="titulo_livro">Five Nights at Freddy's:Olhos Prateados</h3>
+                        <p>Scott Cawthon</p>
 
+                        <div class="avaliacao">
+                        <span class="estrela">★</span>
+                        <span class="estrela">★</span>
+                        <span class="estrela">★</span>
+                        <span class="estrela">★</span>
+                        <span class="estrela">☆</span>
+                        <span>(114)</span>
+                    </div>
+                    </button>
+
+                    
                 </div>
                 <button id="seta4" class="seta"><img src="https://i.postimg.cc/C1y7bRPQ/Chat-GPT-Image-11-de-mai-de-2026-12-07-35.png" alt=""></button>
             </div>
@@ -131,46 +193,99 @@
 
 
 
-    <footer class="footer">
+    <section class="menu">
         
         <div class="menu_flutuante">
             <button class="button_help"></button>
 
                 <div class="conteudo_help">
-                    <span class="central_font">Central de ajuda</span>
+                    <div class="help_cabecalho">
+                     <span class="material-icons">menu_book</span>
+                        <span class="central_font">Central de ajuda</span> 
+                    </div>
 
-                    <button>Entrega e rastreio</button>
+                    <div class="help_linha"> </div>
 
-                    <button>Créditos</button>
+                        <div class="help_opcoes">
+                            <button>
+                                <span class="material-icons">local_shipping</span>
+                                <span>Entrega e Rastreio</span>
+                                <span class="help_seta">›</span>
+                            </button>
 
-                    <button>Ajuda</button>
+                            <button>
+                                <span class="material-icons">credit_card</span>
+                                <span>Créditos</span>
+                                <span class="help_seta">›</span>
+                            </button>
 
-                    <a href="Sobre_projeto.html"><button title="Aperte para saber mais">Sobre o projeto</button></a>
+                            <button>
+                                <span class="material-icons">help_outline</span>
+                                <span>Ajuda</span>
+                                <span class="help_seta">›</span>
+                            </button>
 
-                    <div class="acess_container">
-    
-                            <button id="acess_button" title="Aperte para abrir as opções de acessibilidade">Acessibilidade</button>
-                        
-                            <div class="acess_block" id="acess_block" >
-                                <span class="central_font">Acessibilidade</span>
-                        
-                                <button id="button_tema">Mudar o tema para escuro</button>
-                                
-                                <span>Tamanho da fonte</span>
-                                <button id="diminuir" title="Aperte para diminuir a fonte">A-</button><button id="resetar">resetar</button><button id="aumentar" title="Aperte para aumentar a fonte">A+</button>
+                            <a href="Sobre_projeto.html">
+                            <button>
+                                <span class="material-icons">menu_book</span>
+                                <span>Sobre o projeto</span>
+                                <span class="help_seta">›</span>
+                            </button>
+                            </a>
 
-                            </div>
+                            <div class="acess_container" id="acess_button">
+                            
+                            <span class="material-icons">accessibility</span>
+                            <span>Acessibilidade</span>
+                            <span class="help_seta">›</span>
+                           
+                            <div class="acess_block" id="acess_block">
+                            <span class="central_font">ACESSIBILIDADE</span>
+                            
 
-                        </div>
+                            <button id="button_tema">
+                            Mudar o tema para escuro
+                            </button>
 
-                    <a href="Entre_capas-cadastro.html" title="Ir para a sessão de cadastro"><button>Conta</button></a>
+                            <span class="tamanho_fonte">Tamanho da fonte</span>
+
+                            <button id="diminuir">A-</button>
+                            <button id="resetar">Resetar</button>
+                            <button id="aumentar">A+</button>
+                        </div>  
+
+                </div>
+
+
+        </div>
+
+                 <a href="Entre_capas-cadastro.html">
+                <button>
+                    <span class="material-icons">person</span>
+                     <span>Conta</span>
+                    <span class="help_seta">›</span>
+                </button>
+        </a>
 
 
 
 
                 </div>
         </div>
-    </footer>
+    </section>
     <script src="Entre_capas.js"></script>
+
+
+    <footer>
+         <img src="https://i.postimg.cc/NMbBjb8j/Captura-de-tela-2026-05-02-193618.png" alt="Logomarca" class="logo"><p class="logo_txt" > Entre <br> Capas</p>
+         <p>"Espalhando a magia da leitura . . ."</p>
+         <p>2026 Entre capas &copy;</p>
+
+        <div class="footer-links">
+            <span>Fórum</span>
+            <span>Lívros</span>
+            <span>Sobre</span>
+         </div>
+    </footer>
 </body>
 </html>
