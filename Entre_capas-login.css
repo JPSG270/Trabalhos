@@ -43,16 +43,16 @@ main{
 .login input{
     font-family:poppins;
     font-size: 20px;
-    min-width: 650px;
+    width: 100%;
+    max-width: 800px;
+    box-sizing: border-box;
     min-height: 50px;
-    margin: 15px;
     color:grey ;
     text-align: center;
     border-radius: 15px;
     border: 2px solid black;
-
+    
 }
-
 
 
 form{
@@ -84,11 +84,9 @@ form{
 
 .container_senha{
     position: relative;
-    margin:8px auto;
-    right:18px;
-    max-width:650px;
-    align-items: center;
-    justify-content: center;
+    margin: 8px 0;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .container_senha senha{
@@ -99,7 +97,7 @@ form{
 
 #iconeOlho{
     position: absolute;
-    right: 20px;
+    right: 30px;
     top: 32px;
     color: #555555;
     cursor: pointer;
@@ -109,4 +107,57 @@ form{
 
 #iconeOlho:hover {
     color: #888888; 
+}
+#formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: center;
+}
+
+.campo span {
+    font-size: 0.85rem;
+    min-height: 1.1em;
+}
+/* ---- RESPONSIVIDADE ---- */
+@media (max-width: 900px) {
+    main {
+        min-width: 0;
+        width: 90%;
+        margin: 5vh auto;
+    }
+
+    .login {
+        border-radius: 15px;
+        padding: 15px;
+    }
+
+    .login input {
+        min-width: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .container_senha {
+        right: 0;
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+@media (max-width: 500px) {
+    body {
+        background-size: cover;
+    }
+
+    #entrar {
+        min-width: 0;
+        width: 100%;
+    }
 }

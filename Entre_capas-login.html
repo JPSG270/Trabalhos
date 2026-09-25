@@ -11,41 +11,42 @@
 <body>
 
     <main>
-    
+
         <div class="login">
             <a href="Entre_capas-cadastro.html"><img src="https://i.postimg.cc/cJvR9xZZ/icons8-close-window-50.png" alt="Sair" id="sair" title="Voltar para a página de cadastro."></a>
             <div class="alinhamento">
                 <h1>ENTRAR</h1>
-                <form>
-                    <label for="">NOME</label>
-                    <br>
-                        <input 
-                        type="text"
-                        name="NOME" 
-                        placeholder="Nome" 
-                        id="nome"
-                        required 
-                        maxlength="20" 
-                        title="Insira um nome.">
-                    <br>
-                    <label for="">SENHA</label>
-                <br>
-                    <div class="container_senha">
+                <form id="formulario" novalidate>
+
+                    <div class="campo">
+                        <label for="email">E-MAIL</label>
                         <input
-                        type="password"
-                        name="SENHA"
-                        id="senha"
-                        placeholder="Senha"
-                        required 
-                        maxlength="15"
-                        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$"
-                        title="A senha deve ter o tamanho de 8 a 15 caracteres,contendo pelo menos: 1 letra maiúscula, 1 minúscula, 1 número e 1 símbolo (ex: @, #, $, _).">
-                        <i class="material-icons" id="iconeOlho">visibility_off</i>
-                                        <br>
+                        type="email"
+                        name="E-MAIL"
+                        placeholder="email@exemplo.com"
+                        id="email"
+                        required>
+                        <span id="saida_email"></span>
+                    </div>
+
+                    <div class="campo">
+                        <label for="senha">SENHA</label>
+                        <div class="container_senha">
+                            <input
+                            type="password"
+                            name="SENHA"
+                            id="senha"
+                            placeholder="Senha"
+                            maxlength="15"
+                            required>
+                            <i class="material-icons" id="iconeOlho">visibility_off</i>
+                        </div>
                         <span id="saida_senha"></span>
-                                        
-                    <br>
-                        <button type="submit" value="Entrar" id="entrar">Entrar</button>
+                    </div>
+
+                    <span id="saida_login"></span>
+
+                    <button type="submit" id="entrar">Entrar</button>
                 </form>
             </div>
 

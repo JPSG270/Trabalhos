@@ -1,6 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Changa:wght@200..800&family=Graduate&family=Hind+Vadodara:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rozha+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 /*style*/
 
     /*Normal*/
@@ -31,17 +36,16 @@ body {
     display: grid;
     grid-template-areas: 
     "header"
-    "nav"
+    /*"nav"*/
     "banner"
     "main"
     "menu"
     "footer"
     ;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     grid-template-rows:auto auto auto auto auto;   
     background-color: var(--cor-fundo);
 }
-
 .main h2 {
     font-family: 'Bodoni Moda', serif !important;
     font-size: 35px;
@@ -51,35 +55,54 @@ body {
 .header{
     display:flex;
     align-items:center;
+    justify-content: space-between;
     background-color:#1E1E1E;
     grid-area:header;
     color:white;
-    padding:10px 40px;
-    box-sizing:border-box;
-    height:80px;
-    padding: 20px;
+    min-height: 80px;
+    height: auto;
+    padding: 12px 30px;
+    flex-wrap: wrap;
+    row-gap: 12px;
+    gap: 20px;
 }
+.header_esquerda{
+    display:flex;
+    align-items:center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+/*.header{
+    display:flex;
+    align-items:center;
+    background-color:#1E1E1E;
+    grid-area:header;
+    color:white;
+    min-height: 80px;
+    height: auto;
+    padding: 15px 40px;
+    flex-wrap: wrap;
+    row-gap: 10px;
+}*/
 
 .logo{
     width:65px;
     height:65px;
     object-fit:contain;
     background-color:none;
+    flex-shrink: 0;
 }
 
 .container_pesquisa{
     display:flex;
     align-items:center;
-    background-color:#E8E0D4;
+    background-color:#DCCFBE;
     padding:10px 15px;
     border-radius:30px;
     width:500px;
+    max-width: 100%;
     height:25px;
     margin:0 auto;
-}
-
-.container_pesquisa{
-    background-color:#DCCFBE;
 }
 
 .barra_pesquisa{
@@ -93,6 +116,7 @@ body {
     outline:none;
     box-shadow:none;
     margin:0;
+    min-width: 0;
 }
 
 .barra_pesquisa:focus {
@@ -109,6 +133,7 @@ body {
     align-items:center;
     justify-content:center;
     padding:0 5px;
+    flex-shrink: 0;
 }
 
 .button_pesquisa img{
@@ -116,19 +141,26 @@ body {
     height:22px;
     object-fit:contain;
 }
-
 .nav{
-    position:absolute;
-    top:0;
-    right:40px;
-    height:70px;
     display:flex;
     align-items:center;
-    background:none;
-    padding:0;
-    box-sizing:border-box;
-    gap: 50px;
+    gap: 20px;
+    flex-wrap: wrap;
+    row-gap: 8px;
 }
+/*.nav{
+    grid-area: nav;
+    position: static;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #1E1E1E;
+    padding: 8px 20px;
+    box-sizing: border-box;
+    gap: 20px;
+    row-gap: 8px;
+    flex-wrap: wrap;
+}*/
 
 .nav_buttons{
     background:none;
@@ -161,13 +193,14 @@ body {
     background-color:#252525;
     border-radius:50%;
     cursor:pointer;
+    flex-shrink: 0;
 }
 
 .container_direita{
     display:flex;
     align-items:center;
     gap:8px;
-    margin-left:auto;
+    margin-left: auto;
 }
 
 .creditos{
@@ -185,6 +218,9 @@ body {
     box-shadow:none;
     font-size:0.8rem;
     font-family:poppins;
+    white-space: nowrap;
+    overflow: hidden;
+    flex-shrink: 0;
 }
 
 #diamante{
@@ -196,12 +232,14 @@ body {
 
 .banner{
     position: relative;
-    background-image:url(IMG/banner.png);
+    background-image:url(banner.jpeg);
     background-repeat:no-repeat;
     background-size:cover;
     background-position:center;
     grid-area:banner;
     height: 450px;
+    width: 100%;
+    overflow: hidden;
 }
 
 .button_banner {
@@ -219,13 +257,14 @@ body {
     border-radius: 40px;
     padding: 12px 22px;
     min-width: 255px;
-    height: 50px;
+    max-width: 90%;
+    height: auto;
     font-family: 'Poppins';
     font-size: 1rem;
-    height: 50px;
     font-weight: bold;
     cursor: pointer;
     transition: 0.2s ease;
+    white-space: nowrap;
 }
 
 .button_banner a {
@@ -250,14 +289,17 @@ body {
     background-color:var(--cor-fundo);
     grid-area:main ;
     margin: auto;
+    width: 100%;
+    max-width: 100%;
 }
 
 .main h2 {
-        font-family:graduate;
+    font-family:graduate;
     color:var(--cor-texto);
     display:flex;
     align-items:center;
     gap:20px;
+    padding: 0 20px;
 }
 
 .main h2::before,
@@ -276,6 +318,8 @@ body {
     align-items: center;
     margin: 0 auto;
     max-width: 1200px;
+    width: 100%;
+    padding: 0 10px;
 }
 
 .items_generos{
@@ -286,7 +330,8 @@ body {
     display: flex;
     overflow-x: auto;
     gap: 55px;
-    flex: 0 0 auto;
+    flex: 1 1 auto;
+    min-width: 0;
 }
 
 .generos{
@@ -298,6 +343,7 @@ body {
     align-items: center;
     gap: 8px;
     text-wrap: nowrap;
+    flex-shrink: 0;
 }
 
 .generos:hover .img_generos{
@@ -320,6 +366,8 @@ body {
     display: flex;
     margin: 0 auto;
     max-width: 1300px;
+    width: 100%;
+    padding: 0 10px;
 }
 
 .items_livros{
@@ -328,11 +376,11 @@ body {
     justify-items: center;
     justify-content: center;
     margin: 50px auto;
-    min-width: 700px;
     max-width:1000px;
     overflow-x: auto;
     gap: 120px;
-    flex: 0 0 auto;
+    flex: 1 1 auto;
+    min-width: 0;
     padding-bottom: 15px;
     
 }
@@ -385,16 +433,17 @@ body {
 }
 
 .seta{
-    width: fit-content;
-    height: fit-content;
-
     background:none;
     border: none;
-    margin: none;
+    margin: 0;
     cursor: pointer;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .seta img{
-    width:120px ;
+    width:120px;
     height: 120px;
 }
 
@@ -440,6 +489,7 @@ body {
     right: 85px;
     bottom: 0;
     width: 290px;
+    max-width: calc(100vw - 40px);
     padding: 12px;
     box-sizing: border-box;
     background-color: #1E1E1E;
@@ -616,6 +666,7 @@ body {
     right: 300px;
     bottom: 0px;
     width: 220px;
+    max-width: calc(100vw - 40px);
     padding: 15px;
     box-sizing: border-box;
     background-color: #222222;
@@ -695,6 +746,7 @@ footer {
     padding: 20px;
     gap: 25px;
     box-sizing: border-box;
+    flex-wrap: wrap;
 }
 
 footer p {
@@ -708,7 +760,7 @@ footer span {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 0.95rem;
     cursor: pointer;
-    transition: 0.2(ease);
+    transition: 0.2s ease;
 }
 
 footer span:hover {
@@ -720,7 +772,7 @@ footer span:hover {
     align-items: center;
     gap: 30px;
     margin-left: auto;
-    margin-right: 150px;
+    flex-wrap: wrap;
 }
 
 .avaliacao {
@@ -754,4 +806,158 @@ footer span:hover {
     white-space: nowrap;
     word-wrap: normal;
     direction: ltr;
+}
+
+/* ---- RESPONSIVIDADE ---- */
+
+@media (max-width: 900px) {
+    .container_pesquisa {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .banner {
+        height: 260px;
+    }
+
+    .seta img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .items_livros {
+        gap: 60px;
+    }
+
+    .items_generos {
+        gap: 35px;
+    }
+}
+
+@media (max-width: 600px) {
+    .header {
+        justify-content: center;
+        text-align: center;
+        padding: 15px 20px;
+    }
+
+    .logo_txt {
+        text-align: center;
+        margin: 5px 0;
+        font-size: 1.3rem;
+    }
+
+    .nav {
+        gap: 15px;
+        padding: 10px 15px;
+    }
+
+    .nav_buttons {
+        font-size: 0.85rem;
+        padding: 6px 10px;
+        margin: 0;
+    }
+
+    .container_direita {
+        gap: 10px;
+    }
+
+    .banner {
+        height: 200px;
+    }
+
+    .button_banner {
+        font-size: 0.85rem;
+        padding: 10px 16px;
+        gap: 8px;
+    }
+
+    .main h2 {
+        font-size: 24px;
+    }
+
+    .seta img {
+        width: 45px;
+        height: 45px;
+    }
+
+    .img_generos {
+        width: 75px;
+        height: 75px;
+    }
+
+    .items_generos {
+        gap: 20px;
+    }
+
+    .items_livros {
+        gap: 25px;
+    }
+
+    .img_livros {
+        width: 130px;
+        height: 185px;
+    }
+
+    .button_display {
+        width: 150px;
+    }
+
+    footer {
+        justify-content: center;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .footer-links {
+        margin-left: 0;
+        justify-content: center;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 400px) {
+    .logo {
+        width: 50px;
+        height: 50px;
+    }
+
+    .logo_txt {
+        font-size: 1.1rem;
+    }
+
+    .banner {
+        height: 170px;
+    }
+
+    .main h2 {
+        font-size: 20px;
+    }
+
+    .seta img {
+        width: 36px;
+        height: 36px;
+    }
+
+    .img_generos {
+        width: 65px;
+        height: 65px;
+    }
+
+    .items_generos {
+        gap: 15px;
+    }
+
+    .items_livros {
+        gap: 15px;
+    }
+
+    .img_livros {
+        width: 110px;
+        height: 155px;
+    }
+
+    .button_display {
+        width: 130px;
+    }
 }
