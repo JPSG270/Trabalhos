@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Changa:wght@200..800&family=Graduate&family=Hind+Vadodara:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rozha+One&display=swap');
 
 
@@ -84,15 +85,17 @@ main{
 .cadastrar input{
     font-family:poppins;
     font-size: 20px;
-    min-width: 650px;
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
     min-height: 50px;
-    margin: 15px;
     color:grey ;
     text-align: center;
     border-radius: 15px;
     border: 2px solid black;
 
 }
+
 
 
 form{
@@ -127,23 +130,22 @@ form{
 
 .container_senha{
     position: relative;
-    margin:8px auto;
-    right:18px;
-    max-width:650px;
-    align-items: center;
-    justify-content: center;
+    margin: 8px auto;
+    max-width: 400px;
+    width: 100%;
+    box-sizing: border-box;
+    
 }
 
-.container_senha senha{
+.container_senha input{
     width: 100%;
-    margin: 8px 0px;
-    padding-right: 50px;
+    padding-right: 3px;
 }
 
 #iconeOlho{
     position: absolute;
     right: 20px;
-    top: 32px;
+    top: 7px;
     color: #555555;
     cursor: pointer;
     user-select: none;
@@ -152,4 +154,120 @@ form{
 
 #iconeOlho:hover {
     color: #888888; 
+}
+
+/* ---- campos do formulário de cadastro ---- */
+#formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: center;
+}
+
+.campo input {
+    margin: 0 auto;
+    display: block;
+}
+
+
+.campo span {
+    font-size: 0.85rem;
+    min-height: 1.1em;
+}
+/* ---- RESPONSIVIDADE ---- */
+@media (max-width: 900px) {
+    main {
+        min-width: 0;
+        width: 90%;
+        margin: 5vh auto;
+        grid-template-areas:
+            "entrar"
+            "cadastrar";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+    }
+
+    .entrar {
+        border-radius: 15px 15px 0px 0px;
+        padding: 15px 0;
+    }
+
+    .cadastrar {
+        border-radius: 0px 0px 15px 15px;
+    }
+
+    .cadastrar input {
+        min-width: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .container_senha {
+        right: 0;
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+@media (max-width: 500px) {
+    body {
+        background-size: cover;
+    }
+
+    #sair {
+        max-width: 100px;
+        max-height: 100px;
+    }
+
+    #cadastrar,
+    #button_entrar {
+        min-width: 0;
+        width: 100%;
+    }
+}
+/* ---- Compactar formulário de cadastro ---- */
+.cadastrar {
+    padding: 15px;
+}
+
+.cadastrar h1 {
+    font-size: 1.4rem;
+    margin: 5px 0 15px 0;
+}
+
+.cadastrar input {
+    min-height: 36px;
+    font-size: 15px;
+}
+
+.campo label {
+    font-size: 0.85rem;
+}
+
+.campo span {
+    font-size: 0.75rem;
+    min-height: 0.9em;
+}
+
+#formulario {
+    gap: 6px;
+}
+
+.campo {
+    gap: 2px;
+}
+
+form {
+    padding: 12px;
+}
+
+#cadastrar {
+    min-height: 40px;
+    margin-top: 8px;
 }

@@ -5,69 +5,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
     <link rel="stylesheet" href="Entre_capas-cadastro.css">
-     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 
 <body>
 
     <main>
-        
+
         <div class="entrar">
             <a href="Entre_capas.html"><img src="https://i.postimg.cc/cJvR9xZZ/icons8-close-window-50.png" alt="Sair" id="sair" title="Voltar para a página inicial"></a>
             <h1>Bem-vindo ao Entre Capas</h1>
             <p>Acesse sua conta</p>
             <a href="Entre_capas-login.html"><pre><button id="button_entrar" title="Entrar na conta">ENTRAR</button></pre></a>
-
         </div>
 
         <div class="cadastrar">
 
             <h1>CRIE SUA CONTA</h1>
-            
-            <form id="formulario">
-                <label for="">NOME</label>
-                <br>
-                    <input 
-                    type="text" 
-                    name="NOME" 
-                    id="nome" 
-                    placeholder="Nome" 
-                    required 
-                    maxlength="20" 
-                    title="Insira um nome.">
-                <br>
+
+            <form id="formulario" novalidate>
+
+                <div class="campo">
+                    <label for="nome">NOME</label>
+                    <input type="text" name="NOME" id="nome" placeholder="Nome completo" maxlength="60" required>
                     <span id="saida_nome"></span>
-                <br>
-                <label for="">E-MAIL </label>   
-                <br>
-                    <input type="email" 
-                    name="E-MAIL" 
-                    id="email" 
-                    placeholder="email@gmail.com" 
-                    title="Insira um e-mail válido da @gmail.com" 
-                    required>
-                <br>
+                </div>
+
+                <div class="campo">
+                    <label for="email">E-MAIL</label>
+                    <input type="email" name="E-MAIL" id="email" placeholder="email@exemplo.com" required>
                     <span id="saida_email"></span>
-                <br>
-                <label for="">SENHA</label>
-                <br>
+                </div>
+
+                <div class="campo">
+                    <label for="telefone">TELEFONE</label>
+                    <input type="tel" name="TELEFONE" id="telefone" placeholder="(00) 00000-0000" maxlength="15" required>
+                    <span id="saida_telefone"></span>
+                </div>
+
+                <div class="campo">
+                    <label for="cpf">CPF</label>
+                    <input type="text" name="CPF" id="cpf" placeholder="000.000.000-00" maxlength="14" inputmode="numeric" required>
+                    <span id="saida_cpf"></span>
+                </div>
+
+                <div class="campo">
+                    <label for="nascimento">DATA DE NASCIMENTO</label>
+                    <input type="text" name="NASCIMENTO" id="nascimento" placeholder="dd/mm/aaaa" maxlength="10" inputmode="numeric" required>
+                    <span id="saida_nascimento"></span>
+                </div>
+
+                <div class="campo">
+                    <label for="cep">CEP</label>
+                    <input type="text" name="CEP" id="cep" placeholder="00000-000" maxlength="9" inputmode="numeric" required>
+                    <span id="saida_cep"></span>
+                </div>
+
+                <div class="campo">
+                    <label for="senha">SENHA</label>
                     <div class="container_senha">
-                        <input
-                        type="password"
-                        name="SENHA"
-                        id="senha"
-                        placeholder="Senha"
-                        required 
-                        maxlength="15"
-                        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$"
-                        title="A senha deve ter o tamanho de 8 a 15 caracteres,contendo pelo menos: 1 letra maiúscula, 1 minúscula, 1 número e 1 símbolo (ex: @, #, $, _).">
+                        <input type="password" name="SENHA" id="senha" placeholder="Senha" maxlength="15" required
+                        title="De 8 a 15 caracteres, com 1 maiúscula, 1 minúscula, 1 número e 1 símbolo (ex: @, #, $, _).">
                         <i class="material-icons" id="iconeOlho">visibility_off</i>
-                                        <br>
-                        <span id="saida_senha"></span>
-                                        <br>
                     </div>
-                    <button type="submit" value="CADASTRAR" id="cadastrar">Cadastrar</button>
+                    <span id="saida_senha"></span>
+                </div>
+
+                <div class="campo">
+                    <label for="confirmar_senha">CONFIRMAR SENHA</label>
+                    <input type="password" name="CONFIRMAR_SENHA" id="confirmar_senha" placeholder="Repita a senha" maxlength="15" required>
+                    <span id="saida_confirmar_senha"></span>
+                </div>
+
+                <button type="submit" id="cadastrar">Cadastrar</button>
 
             </form>
 

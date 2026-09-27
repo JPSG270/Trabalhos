@@ -67,3 +67,30 @@ botao_tema.addEventListener("click",()=>{
     }
 
 });
+
+/*--------------------------------------------------------------------------------*/
+
+const livros = document.querySelectorAll('.button_display');
+
+const observador = new IntersectionObserver((entradas) => {
+
+    entradas.forEach((entrada, index) => {
+
+        if (entrada.isIntersecting) {
+
+            setTimeout(() => {
+                entrada.target.classList.add('aparecer');
+            }, index * 150);
+
+            observador.unobserve(entrada.target);
+        }
+
+    });
+
+}, {
+    threshold: 0.2
+});
+
+livros.forEach(livro => {
+    observador.observe(livro);
+});

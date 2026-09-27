@@ -1,158 +1,222 @@
-function validacao_senha(){
+const forms = document.getElementById("formulario");
 
-    let campo_senha=document.getElementById("senha")
-    let senha=document.getElementById("senha").value.trim()
-    let saida_senha=document.getElementById("saida_senha")
+/* ---------- MÁSCARAS ---------- */
+const mascaras = {
+    telefone: v => v.replace(/\D/g, "").slice(0, 11)
+        .replace(/^(\d{2})(\d)/, "($1) $2")
+        .replace(/(\d{5})(\d{1,4})$/, "$1-$2"),
 
-    let erros_senha=[]
+    cpf: v => v.replace(/\D/g, "").slice(0, 11)
+        .replace(/(\d{3})(\d)/, "$1.$2")
+        .replace(/(\d{3})(\d)/, "$1.$2")
+        .replace(/(\d{3})(\d{1,2})$/, "$1-$2"),
 
-    if ((senha.length<8)||(senha.length>15)){
-       erros_senha.push("possuir tamanho entre 8 e 15 caracteres") 
-       
+    nascimento: v => v.replace(/\D/g, "").slice(0, 8)
+        .replace(/(\d{2})(\d)/, "$1/$2")
+        .replace(/(\d{2})(\d)/, "$1/$2"),
+
+    cep: v => v.replace(/\D/g, "").slice(0, 8)
+        .replace(/(\d{5})(\d)/, "$1-$2")
+};
+
+/* ---------- FUNÇÕES AUXILIARES ---------- */
+function cpfValido(cpf) {
+    cpf = cpf.replace(/\D/g, "");
+    if (cpf.length !== 11 || /^(\d)\1{10}$/.test(cpf)) return false;
+
+    for (let t = 9; t < 11; t++) {
+        let soma = 0;
+        for (let i = 0; i < t; i++) {
+            soma += Number(cpf[i]) * (t + 1 - i);
+        }
+        let digito = (soma * 10) % 11;
+        if (digito === 10) digito = 0;
+        if (digito !== Number(cpf[t])) return false;
     }
-
-    if (senha.match(/[0-9]/g)==null){
-        erros_senha.push("possuir pelo menos um número") 
-       
-
-    }
-
-    if (senha.match(/[a-z]/g)==null){
-         erros_senha.push("possuir pelo menos uma letra minúscula") 
-       
-
-    }
-
-    if (senha.match(/[A-Z]/g)==null){
-        erros_senha.push("possuir pelo menos uma letra maiúscula") 
-       
-
-    }
-
-    if (senha.match(/[\W|_]/g)==null){
-        erros_senha.push("possuir pelo menos um símbolo") 
-        
-
-    }
-
-    if (erros_senha.length == 0){
-        saida_senha.textContent="Senha válida"
-        saida_senha.style.color="lightgreen"
-       
-        
-    }else{
-        saida_senha.textContent=`Erro...A senha deve ${erros_senha.join(",")}`;
-        saida_senha.style.color="pink"
-       
-    }
-
-    return erros_senha
+    return true;
 }
 
-function validacao_email(){
+function dataValida(texto) {
+    const m = texto.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
+    if (!m) return false;
 
-    let campo_email=document.getElementById("email")
-    let email=campo_email.value.trim()
-    let saida_email=document.getElementById("saida_email")
-   
-    let erros_email=[]
+    const dia = Number(m[1]);
+    const mes = Number(m[2]);
+    const ano = Number(m[3]);
+    const data = new Date(ano, mes - 1, dia);
 
-    if ((!email.endsWith("@gmail.com"))|| (email.length < 11)){
-        erros_email.push("Conter @gmail.com e não ser vazio")
+    if (data.getFullYear() !== ano || data.getMonth() !== mes - 1 || data.getDate() !== dia) {
+        return false;
     }
-
-    if (erros_email.length == 0){
-        saida_email.textContent="Email válido"
-        saida_email.style.color="lightgreen"
-    }else{
-        saida_email.textContent=`Erro...O E-mail deve ${erros_email.join(",")}`;
-        saida_email.style.color="pink"}
-
-        return erros_email
-
+    return ano >= 1900 && data <= new Date();
 }
 
-function validacao_nome(){
+/* ---------- REGRAS: cada uma devolve a lista de erros do campo ---------- */
+const regras = {
+    nome() {
+        const nome = document.getElementById("nome").value.trim();
+        const erros = [];
+        if (nome.length < 2) {
+            erros.push("informe o nome (mínimo 2 letras)");
+        } else if (!/^[A-Za-zÀ-ÿ\s]+$/.test(nome)) {
+            erros.push("use apenas letras e espaços");
+        }
+        return erros;
+    },
 
-    let campo_nome=document.getElementById("nome")
-    let nome=campo_nome.value.trim()
-    let saida_nome=document.getElementById("saida_nome")
+    email() {
+        const email = document.getElementById("email").value.trim();
+        const erros = [];
+        if (email === "") {
+            erros.push("informe o e-mail");
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            erros.push("formato inválido (ex.: nome@email.com)");
+        }
+        return erros;
+    },
 
-    erros_nome=[]
+    telefone() {
+        const erros = [];
+        if (document.getElementById("telefone").value.length !== 15) {
+            erros.push("informe DDD + 9 dígitos, ex.: (24) 99999-9999");
+        }
+        return erros;
+    },
 
-    if (nome.length==0){
-        erros_nome.push("Espaço nome vazio!")
+    cpf() {
+        const valor = document.getElementById("cpf").value;
+        const erros = [];
+        if (valor.length !== 14) {
+            erros.push("CPF incompleto");
+        } else if (!cpfValido(valor)) {
+            erros.push("CPF inválido");
+        }
+        return erros;
+    },
+
+    nascimento() {
+        const erros = [];
+        if (!dataValida(document.getElementById("nascimento").value)) {
+            erros.push("data inválida (use dd/mm/aaaa)");
+        }
+        return erros;
+    },
+
+    cep() {
+        const erros = [];
+        if (document.getElementById("cep").value.length !== 9) {
+            erros.push("CEP incompleto (00000-000)");
+        }
+        return erros;
+    },
+
+    senha() {
+        const senha = document.getElementById("senha").value;
+        const erros = [];
+        if (senha.length < 8 || senha.length > 15) erros.push("de 8 a 15 caracteres");
+        if (!/[0-9]/.test(senha)) erros.push("falta um número");
+        if (!/[a-z]/.test(senha)) erros.push("falta uma letra minúscula");
+        if (!/[A-Z]/.test(senha)) erros.push("falta uma letra maiúscula");
+        if (!/[\W_]/.test(senha)) erros.push("falta um símbolo");
+        return erros;
+    },
+
+    confirmar_senha() {
+        const senha = document.getElementById("senha").value;
+        const confirmacao = document.getElementById("confirmar_senha").value;
+        const erros = [];
+        if (confirmacao === "") {
+            erros.push("confirme a senha");
+        } else if (confirmacao !== senha) {
+            erros.push("as senhas não coincidem");
+        }
+        return erros;
     }
+};
 
-     if (erros_nome.length == 0){
-        saida_nome.textContent="Nome válido"
-        saida_nome.style.color="lightgreen"
-        
-    }else{
-        saida_nome.textContent=`${erros_nome.join(",")}`;
-        saida_nome.style.color="pink"
-        
+/* ---------- MOSTRA O RESULTADO NA TELA ---------- */
+function validar(id) {
+    const erros = regras[id]();
+    const saida = document.getElementById("saida_" + id);
+
+    if (erros.length === 0) {
+        saida.textContent = "Válido";
+        saida.style.color = "lightgreen";
+    } else {
+        saida.textContent = "Erro... " + erros.join("; ");
+        saida.style.color = "pink";
     }
-
-    return erros_nome
+    return erros;
 }
 
+/* ---------- VALIDAÇÃO AO DIGITAR (só o campo que mudou) ---------- */
+forms.addEventListener("input", (evento) => {
+    const id = evento.target.id;
+    if (!regras[id]) return;
 
-let button_cadastrar=document.getElementById("cadastrar")
-
-let forms=document.getElementById("formulario")
-
-forms.addEventListener("input",()=>{
-    validacao_email();
-    validacao_nome();
-    validacao_senha();
-    /*if (forms.checkValidity()){
-        button_cadastrar.disabled=false;
-    }else{
-        button_cadastrar.disabled=true;
+    if (mascaras[id]) {
+        evento.target.value = mascaras[id](evento.target.value);
     }
-        Tirei isso pois estava atrapalhando a visualizar alguns métodos html como o required*/
-})
 
-function Envio(evento){
+    validar(id);
+
+    // se mexeu na senha e a confirmação já foi preenchida, revalida a confirmação
+    if (id === "senha" && document.getElementById("confirmar_senha").value !== "") {
+        validar("confirmar_senha");
+    }
+});
+
+/* ---------- ENVIO ---------- */
+forms.addEventListener("submit", (evento) => {
     evento.preventDefault();
 
-    let erros_email=validacao_email();
-    let erros_nome=validacao_nome();
-    let erros_senha=validacao_senha();
+    let primeiroInvalido = null;
+    Object.keys(regras).forEach((id) => {
+        const erros = validar(id);
+        if (erros.length > 0 && primeiroInvalido === null) {
+            primeiroInvalido = id;
+        }
+    });
 
-    if (erros_nome.length > 0) {
-        document.getElementById("nome").focus();
+    if (primeiroInvalido !== null) {
+        document.getElementById(primeiroInvalido).focus();
         return;
     }
-    if (erros_email.length > 0) {
+
+    const usuario = {
+        nome: document.getElementById("nome").value.trim(),
+        email: document.getElementById("email").value.trim().toLowerCase(),
+        telefone: document.getElementById("telefone").value,
+        cpf: document.getElementById("cpf").value,
+        nascimento: document.getElementById("nascimento").value,
+        cep: document.getElementById("cep").value,
+        senha: document.getElementById("senha").value,
+        coins: 0
+    };
+
+    const usuarios = JSON.parse(localStorage.getItem("usuarios") || "[]");
+
+    if (usuarios.some((u) => u.email === usuario.email)) {
+        const saida = document.getElementById("saida_email");
+        saida.textContent = "Erro... este e-mail já está cadastrado";
+        saida.style.color = "pink";
         document.getElementById("email").focus();
         return;
     }
-    if (erros_senha.length > 0) {
-        document.getElementById("senha").focus();
-        return;
-    }
+
+    usuarios.push(usuario);
+    localStorage.setItem("usuarios", JSON.stringify(usuarios));
 
     alert("Cadastro realizado com sucesso!");
-    formulario.submit();
-}
+    window.location.href = "Entre_capas-login.html";
+});
 
-forms.addEventListener("submit",Envio)
+/* ---------- OLHO DA SENHA ---------- */
+const campoSenha = document.getElementById("senha");
+const olho = document.getElementById("iconeOlho");
 
-let senha=document.getElementById("senha")
-
-let olho=document.getElementById("iconeOlho")
-
-function visibilidade(){
-    if (senha.type==="password"){
-        senha.type="text";
-        olho.textContent="visibility";
-    }else{
-        senha.type="password"
-        olho.textContent="visibility_off";
-    }
-}
-
-olho.addEventListener("click",visibilidade)
-
+olho.addEventListener("click", () => {
+    const mostrar = campoSenha.type === "password";
+    campoSenha.type = mostrar ? "text" : "password";
+    olho.textContent = mostrar ? "visibility" : "visibility_off";
+});
